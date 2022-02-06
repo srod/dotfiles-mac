@@ -1,108 +1,150 @@
 [user]
-	name = Lars Kappert
-	email = lars@webpro.nl
+    name = Rodolphe Stoclin
+    email = srodolphe@gmail.com
+    signingkey = 37C817DE4492623E
 
-[github]
-	user = webpro
+[apply]
+    # Detect whitespace errors when applying a patch
+    whitespace = fix
 
 [core]
-	excludesfile = ~/.config/git/ignore
-	editor = code --wait
-	filemode = false
-	trustctime = false
-	autocrlf = input
-	untrackedCache = true
-	pager = diff-so-fancy | less --tabs=4 -RFX
-	ignorecase = false
+    editor = code --wait
 
-[credential]
-	helper = osxkeychain
+    # Use custom `.gitignore`
+    excludesfile = ~/.config/git/ignore
 
-[pull]
-	rebase = true
+    autocrlf = input
+    safecrlf = warn
 
-[init]
-	defaultBranch = main
+    # Treat spaces before tabs and all kinds of trailing whitespace as an error
+    # [default] trailing-space: looks for spaces at the end of a line
+    # [default] space-before-tab: looks for spaces before tabs at the beginning of a line
+    whitespace = space-before-tab,-indent-with-non-tab,trailing-space
 
-[push]
-	default = simple
-	followTags = true
+    # Make `git rebase` safer on macOS
+    # More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
+    trustctime = false
 
-[fetch]
-	prune = true
+    # Prevent showing files whose names contain non-ASCII symbols as unversioned.
+    # http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
+    precomposeunicode = false
 
-[grep]
-	lineNumber = true
+    # Speed up commands involving untracked files such as `git status`.
+    # https://git-scm.com/docs/git-update-index#_untracked_cache
+    untrackedCache = true
 
-[help]
-	autocorrect = 1
-
-[alias]
-	amend = commit --amend --reuse-message=HEAD
-	br = branch
-	ci = commit
-	co = checkout
-	contrib = shortlog --summary --numbered
-	cr = clone --recursive
-	df = diff --word-diff
-	g = grep --break --heading --line-number
-	l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-	ld = "!sh -c \"git log --since '${1:-1} days ago' --oneline --author $(git config user.email)\" -"
-	lg = log -p
-	ll = log --pretty=oneline --graph --abbrev-commit
-	lm = log --pretty=format:'* %s (%h)'
-	patch = !git --no-pager diff --no-color
-	p = push
-	pf = push --force
-	pr = "!f() { git fetch -fu ${2:-origin} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
-	show-ignored = "! git clean -ndX | perl -pe 's/Would remove/Ignored:/'"
-	st = status
-	stl = ls-files -m -o --exclude-standard
-	sts = status -sb
-	unstage = reset --hard HEAD
-
-[diff]
-	renames = copies
-	indentHeuristic = true
-	tool = Kaleidoscope
-[difftool]
-	prompt = false
-[difftool "Kaleidoscope"]
-	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-[difftool "sourcetree"]
-	cmd = /usr/local/bin/ksdiff -w \"$LOCAL\" \"$REMOTE\"
-	path =
-
-[merge]
-	tool = Kaleidoscope
-	conflictstyle = diff3
-	defaultToUpstream = true
-[mergetool]
-	prompt = false
-[mergetool "Kaleidoscope"]
-	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustExitCode = true
-[mergetool "sourcetree"]
-	cmd = /usr/local/bin/ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustExitCode = true
+    pager = diff-so-fancy | less --tabs=4 -RFX
 
 [color]
-	ui = auto
-[color "branch"]
-	current = yellow reverse
-	local = yellow
-	remote = green
+    ui = true
+
 [color "diff"]
-	meta = yellow bold
-	frag = magenta bold
-	old = red bold
-	new = green bold
-[color "status"]
-	added = yellow
-	changed = green
-	untracked = cyan
+    meta = yellow
+    frag = magenta bold
+    old = red bold
+    new = green bold
+   	commit = yellow bold
+    whitespace = red reverse
+
 [color "diff-highlight"]
 	oldNormal = red bold
 	oldHighlight = red bold 52
 	newNormal = green bold
 	newHighlight = green bold 22
+
+[commit]
+    # https://help.github.com/articles/signing-commits-using-gpg/
+    gpgsign = true
+
+[alias]
+    ll = log --pretty=format:"%C(yellow)%h\\ %C(green)%ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat --date=relative
+
+    ls = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+    today = log --since=1am --author='Rodolphe Stoclin' --format='- %s'
+
+    filelog = log -u
+
+    d = diff
+
+    grep = grep -n
+
+    la = "!git config -l | grep alias | cut -c 7-"
+
+    st = status -sb
+
+    s = status -sb
+
+    lpush = "!git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit origin/$(git currentbranch)..HEAD"
+
+    lpull = "!git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit HEAD..origin/$(git currentbranch)"
+
+    whatsnew = "!git diff origin/$(git currentbranch)...HEAD"
+
+    whatscoming = "!git diff HEAD...origin/$(git currentbranch)"
+
+    currentbranch = "!git branch | grep \"^\\*\" | cut -d \" \" -f 2"
+
+    w = whatchanged --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+    undo = reset --soft HEAD^
+
+    count = shortlog -sn
+
+    pullr = pull --rebase
+
+    reb = "!r() { git rebase -i HEAD~$1; }; r"
+
+    dm = "!git branch --merged | grep -v '\\*'"
+
+    empty = "!git commit --allow-empty -m 'chore(deploy): trigger build with empty commit'"
+
+    pr = "!f() { git fetch -fu ${2:-upstream} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
+
+    pr-clean = "!git checkout master ; git for-each-ref refs/heads/pr/* --format=\"%(refname)\" | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
+
+    up = pull --rebase --autostash
+
+[help]
+    # Automatically correct and execute mistyped commands
+    autocorrect = 1
+
+[rerere]
+    enabled = true
+
+[push]
+    default = current
+    followTags = true
+
+[pull]
+    default = current
+
+[credential]
+    helper = osxkeychain
+
+[filter "lfs"]
+    smudge = git-lfs smudge -- %f
+    required = true
+    clean = git-lfs clean -- %f
+    process = git-lfs filter-process
+
+[git-up "rebase"]
+    auto = false
+
+[mergetool "Code"]
+    cmd = code --wait $MERGED
+    trustexitcode = true
+
+[merge]
+    # Include summaries of merged commits in newly created merge commit messages
+    log = true
+    tool = Code
+
+[difftool "Code"]
+    cmd = code --wait --diff $LOCAL $REMOTE
+
+[diff]
+    # Detect copies as well as renames
+    renames = copies
+    # external = git-external-patdiff
+    tool = Code

@@ -1,14 +1,6 @@
-fast-cli
-fkill-cli
-get-port-cli
-gtop
-local-web-server
-nodemon
+eslint
 npm
 npm-check
 prettier
-release-it
-svgo
-tldr
-underscore-cli
+serve
 yarn

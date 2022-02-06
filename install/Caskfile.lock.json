@@ -1,0 +1,155 @@
+{
+  "entries": {
+    "tap": {
+      "homebrew/cask": {
+        "revision": "76868703b1717b129e8aedc1dff9064055229429"
+      }
+    },
+    "cask": {
+      "alfred": {
+        "version": "4.6.2,1280",
+        "options": {
+          "full_name": "alfred"
+        }
+      },
+      "bitwarden": {
+        "version": "1.30.0",
+        "options": {
+          "full_name": "bitwarden"
+        }
+      },
+      "brave-browser": {
+        "version": "1.35.100.0,135.100",
+        "options": {
+          "full_name": "brave-browser"
+        }
+      },
+      "firefox": {
+        "version": "96.0.3",
+        "options": {
+          "full_name": "firefox"
+        }
+      },
+      "google-chrome": {
+        "version": "98.0.4758.80",
+        "options": {
+          "full_name": "google-chrome"
+        }
+      },
+      "gpg-suite": {
+        "version": "2021.3",
+        "options": {
+          "full_name": "gpg-suite"
+        }
+      },
+      "iina": {
+        "version": "1.2.0,129",
+        "options": {
+          "full_name": "iina"
+        }
+      },
+      "imageoptim": {
+        "version": "1.8.8",
+        "options": {
+          "full_name": "imageoptim"
+        }
+      },
+      "insync": {
+        "version": "3.7.0.50216",
+        "options": {
+          "full_name": "insync"
+        }
+      },
+      "istat-menus": {
+        "version": "6.61",
+        "options": {
+          "full_name": "istat-menus"
+        }
+      },
+      "iterm2": {
+        "version": "3.4.15",
+        "options": {
+          "full_name": "iterm2"
+        }
+      },
+      "kaleidoscope": {
+        "version": "3.2,2039",
+        "options": {
+          "full_name": "kaleidoscope"
+        }
+      },
+      "keybase": {
+        "version": "5.9.2,20220131221715,a25f15e42b",
+        "options": {
+          "full_name": "keybase"
+        }
+      },
+      "malwarebytes": {
+        "version": "4.13.5.4414",
+        "options": {
+          "full_name": "malwarebytes"
+        }
+      },
+      "moneydance": {
+        "version": "2022.2,4060",
+        "options": {
+          "full_name": "moneydance"
+        }
+      },
+      "onyx": {
+        "version": "4.1.5",
+        "options": {
+          "full_name": "onyx"
+        }
+      },
+      "plex": {
+        "version": "1.40.1.2823,6f60f3a7",
+        "options": {
+          "full_name": "plex"
+        }
+      },
+      "spotify": {
+        "version": "1.1.77.643,3c4c6fc6,18",
+        "options": {
+          "full_name": "spotify"
+        }
+      },
+      "standard-notes": {
+        "version": "3.9.20",
+        "options": {
+          "full_name": "standard-notes"
+        }
+      },
+      "sublime-text": {
+        "version": "4.126",
+        "options": {
+          "full_name": "sublime-text"
+        }
+      },
+      "telegram-desktop": {
+        "version": "3.5.0",
+        "options": {
+          "full_name": "telegram-desktop"
+        }
+      },
+      "visual-studio-code": {
+        "version": "1.64.0",
+        "options": {
+          "full_name": "visual-studio-code"
+        }
+      }
+    }
+  },
+  "system": {
+    "macos": {
+      "monterey": {
+        "HOMEBREW_VERSION": "3.3.13",
+        "HOMEBREW_PREFIX": "/opt/homebrew",
+        "Homebrew/homebrew-core": "ee0ad7e47139635e245582c9ee49a90dcdda00d6",
+        "CLT": "13.2.0.0.1.1638488800",
+        "Xcode": "13.1",
+        "macOS": "12.2"
+      }
+    }
+  }
+}
